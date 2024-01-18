@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+import React from 'react'; 
+import { Table } from 'antd'; 
+ 
+function App() { 
+  interface IDataItem { 
+    key: string; 
+    name: string; 
+    age: number; 
+    address: string; 
+  } 
+ 
+ 
+  const dataSource: IDataItem[] = [ 
+    { key: '1', name: 'Nanna Christiansen', age: 25, address: 'Street 123' }, 
+    { key: '2', name: 'Sedef Sarıoğlu', age: 30, address: 'Street 456' }, 
+    { key: '3', name: 'Nicoline Christiansen', age: 28, address: 'Avenue 789' }, 
+    { key: '4', name: 'Reina Ramírez', age: 35, address: 'Road 321' }, 
+    { key: '5', name: 'Ege Başoğlu', age: 22, address: 'Lane 654' }, 
+    { key: '6', name: 'Olivia Hokkanen', age: 40, address: 'Boulevard 987' }, 
+    { key: '7', name: 'Radivoy Zavadovskiy', age: 27, address: 'Way 234' }, 
+    { key: '8', name: 'William Martinez', age: 33, address: 'Circle 567' }, 
+    { key: '9', name: 'Chloe Li', age: 29, address: 'Square 890' }, 
+    { key: '10', name: 'Filippo Kehl', age: 26, address: 'Park 432'}, 
+  ]; 
+ 
+  const columns = [ 
+    { title: 'Name', dataIndex: 'name', key: 'name' }, 
+    { title: 'Age', dataIndex: 'age', key: 'age' }, 
+    { title: 'Address', dataIndex: 'address', key: 'address' }, 
+  ]; 
+  return ( 
+    <div> 
+      <Table<IDataItem> 
+        dataSource={dataSource} 
+        columns={columns} 
+      /> 
+    </div> 
+  ); 
+ 
+} 
+ 
+export default App;
