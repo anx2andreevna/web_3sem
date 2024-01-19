@@ -26,17 +26,17 @@ const Navbar: React.FC = () => {
     <div className='navbar'> 
         <div className='navbar__links'> 
           <Link to={ARTEM_ROUTE} className="routeLink"> 
-            О нас 
+            Артем
           </Link> 
           <Link to={MASHA_ROUTE} className="routeLink"> 
-            Главная 
+            Маша 
           </Link> 
           <Link to={VLAD_ROUTE} className="routeLink"> 
-            Каталог 
+            Влад 
           </Link> 
           {isAuthenticated && ( 
             <Link to={TABLE_PAGINATION_ROUTE} className="routeLink"> 
-              Отзывы 
+              Таблица 
             </Link> 
           )} 
         </div> 
