@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
             </button> 
           </div> 
         </AuthContext.Provider> 
-    </div> 
+        </div> 
   ); 
 }; 
  
