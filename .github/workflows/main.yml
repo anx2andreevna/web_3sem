@@ -16,7 +16,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const textToAdd = 'Цветкова Анна 321-322';
+          const textToAdd = 'Цветкова Анна 221-322';
           const newDescription = textToAdd;
           github.pulls.update({
             owner: context.repo.owner,
