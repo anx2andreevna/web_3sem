@@ -50,27 +50,26 @@ const FilterInput = styled.input`
 `;
 
 const DynamicPagination: FC = () => {
-  const [universities, setUniversities] = useState<Array<IUniversity>>([]);
+  const [universities, setUniversities] = useState<IUniversity[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("");
-  
 
   const fetchUniversities = async () => {
     try {
       setLoading(true);
       const offset = (currentPage - 1) * LIMIT_UNIVERSITIES;
       let url = `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`;
-      
+
       // filter
       if (filter !== "") {
         url += `&name=${filter}`;
       }
-      
+
       const response = await axios.get(url);
       setUniversities((prev) => [...prev, ...response.data]);
     } catch (error) {
-      console.log('Error fetching universities:', error);
+      console.log("Error fetching universities:", error);
     } finally {
       setLoading(false);
     }
@@ -103,7 +102,9 @@ const DynamicPagination: FC = () => {
       <FilterInput
         type="text"
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={(e) => {
+          setFilter(e.target.value);
+        }}
         placeholder="Filter by name..."
       />
 

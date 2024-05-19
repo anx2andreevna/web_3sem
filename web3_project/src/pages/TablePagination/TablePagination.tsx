@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button } from 'antd';
-import axios from 'axios';
-import type { ColumnsType } from 'antd/es/table';
+import React, { useState, useEffect } from "react";
+import { Table, Button } from "antd";
+import axios from "axios";
+import type { ColumnsType } from "antd/es/table";
 
 interface DataType {
   country: string;
@@ -12,14 +12,14 @@ const limit = 10;
 
 const columns: ColumnsType<DataType> = [
   {
-    title: 'Страна',
-    dataIndex: 'country',
-    key: 'country',
+    title: "Страна",
+    dataIndex: "country",
+    key: "country",
   },
   {
-    title: 'Название школы',
-    dataIndex: 'name',
-    key: 'name',
+    title: "Название школы",
+    dataIndex: "name",
+    key: "name",
   },
 ];
 
@@ -30,12 +30,12 @@ const TablePagination: React.FC = () => {
   const getUniversity = async (offset: number, limit: number) => {
     try {
       const response = await axios.get(
-        `http://universities.hipolabs.com/search?offset=${offset*limit}&limit=${limit}`
+        `http://universities.hipolabs.com/search?offset=${offset * limit}&limit=${limit}`,
       );
-      console.log(response)
+      console.log(response);
       setDataSource(response.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -45,14 +45,25 @@ const TablePagination: React.FC = () => {
 
   return (
     <>
-      <Table<DataType> className='table' dataSource={dataSource} columns={columns} pagination={false} />
-      <div className='wrapper'>
-          <p>Текущая страница: {offset+1}</p>
-        <div className='buttons'>
-          <Button className='btn' onClick={() => setOffset(offset - 1)} disabled={!offset}>
+      <Table<DataType> className="table" dataSource={dataSource} columns={columns} pagination={false} />
+      <div className="wrapper">
+        <p>Текущая страница: {offset + 1}</p>
+        <div className="buttons">
+          <Button
+            className="btn"
+            onClick={() => {
+              setOffset(offset - 1);
+            }}
+            disabled={!offset}
+          >
             Назад
           </Button>
-          <Button className='btn' onClick={() => setOffset(offset + 1)}>
+          <Button
+            className="btn"
+            onClick={() => {
+              setOffset(offset + 1);
+            }}
+          >
             Вперед
           </Button>
         </div>
