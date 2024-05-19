@@ -7,7 +7,7 @@ describe("Navbar", () => {
     render(
       <BrowserRouter>
         <Navbar />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText("Home");
@@ -25,7 +25,7 @@ describe("Navbar", () => {
     render(
       <BrowserRouter>
         <Navbar />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const tableLink = screen.queryByText("Table");
@@ -42,7 +42,7 @@ describe("Navbar", () => {
     render(
       <BrowserRouter>
         <Navbar />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const loginButton = screen.getByRole("button", { name: /войти/i });
