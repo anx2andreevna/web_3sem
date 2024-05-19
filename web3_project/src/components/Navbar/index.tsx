@@ -23,26 +23,30 @@ const Navbar: React.FC = () => {
     setIsAuthenticated((prevState) => !prevState); 
   }; 
   return( 
-    <div className='navbar'> 
-        <div className='navbar__links'> 
-          <Link to={ARTEM_ROUTE} className="routeLink"> 
-            Артем
-          </Link> 
-          <Link to={MASHA_ROUTE} className="routeLink"> 
-            Маша 
-          </Link> 
-          <Link to={VLAD_ROUTE} className="routeLink"> 
-            Влад 
-          </Link> 
-          {isAuthenticated && ( 
-            <Link to={TABLE_PAGINATION_ROUTE} className="routeLink"> 
-              Таблица 
-            </Link> 
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav"> 
+          <li className="nav-item">
+              <Link to={ARTEM_ROUTE} className="nav-link">Артем</Link>
+            </li>
+          <li className="nav-item">
+              <Link to={MASHA_ROUTE} className="nav-link">Маша</Link>
+            </li>
+            <li className="nav-item">
+              <Link to={VLAD_ROUTE} className="nav-link">Влад</Link>
+            </li>
+            {isAuthenticated && (
+              <li className="nav-item">
+                <Link to={TABLE_PAGINATION_ROUTE} className="nav-link">Таблица</Link>
+              </li> 
           )} 
+          </ul>
         </div> 
         <AuthContext.Provider value={{ loginButtonText, toggleLogin }}> 
           <div> 
             <button 
+              className="btn btn-primary"
               onClick={toggleLogin} 
             > 
               {loginButtonText} 
@@ -50,6 +54,7 @@ const Navbar: React.FC = () => {
           </div> 
         </AuthContext.Provider> 
         </div> 
+        </nav>
   ); 
 }; 
  
