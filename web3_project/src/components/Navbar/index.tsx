@@ -25,26 +25,20 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container-fluid">
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-          <li className="nav-item">
-              <Link to={HOME_ROUTE} className="nav-link">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={DYNAMIC_PAGINATION_ROUTE} className="nav-link">DynamicPagination</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={MASHA_ROUTE} className="nav-link">Маша</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={VLAD_ROUTE} className="nav-link">Влад</Link>
-            </li>
+        <Link to={HOME_ROUTE} className="navbar-brand" aria-current="page">Home</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link to={DYNAMIC_PAGINATION_ROUTE} className="nav-link">DynamicPagination</Link>
+            <Link to={MASHA_ROUTE} className="nav-link">About us</Link>
+            <Link to={VLAD_ROUTE} className="nav-link">Contacts</Link>
             {isAuthenticated && (
-              <li className="nav-item">
-                <Link to={TABLE_PAGINATION_ROUTE} className="nav-link">Таблица</Link>
-              </li>
-            )}
-          </ul>
+                 <Link to={TABLE_PAGINATION_ROUTE} className="nav-link">Table</Link>
+       
+ )}
+          </div>
         </div>
         <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
           <div>
@@ -58,6 +52,44 @@ const Navbar: React.FC = () => {
         </AuthContext.Provider>
       </div>
     </nav>
+
+
+
+    // <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    //   <div className="container-fluid">
+    //     <div className="collapse navbar-collapse" id="navbarNav">
+    //       <ul className="navbar-nav">
+    //       <li className="nav-item">
+    //           <Link to={HOME_ROUTE} className="navbar-brand">Home</Link>
+    //         </li>
+    //         <li className="nav-item">
+    //           <Link to={DYNAMIC_PAGINATION_ROUTE} className="nav-link">DynamicPagination</Link>
+    //         </li>
+    //         <li className="nav-item">
+    //           <Link to={MASHA_ROUTE} className="nav-link">Маша</Link>
+    //         </li>
+    //         <li className="nav-item">
+    //           <Link to={VLAD_ROUTE} className="nav-link">Влад</Link>
+    //         </li>
+    //         {isAuthenticated && (
+    //           <li className="nav-item">
+    //             <Link to={TABLE_PAGINATION_ROUTE} className="nav-link">Таблица</Link>
+    //           </li>
+    //         )}
+    //       </ul>
+    //     </div>
+    //     <AuthContext.Provider value={{ loginButtonText, toggleLogin }}>
+    //       <div>
+    //         <button 
+    //           className="btn btn-primary"
+    //           onClick={toggleLogin}
+    //         >
+    //           {loginButtonText}
+    //         </button>
+    //       </div>
+    //     </AuthContext.Provider>
+    //   </div>
+    // </nav>
   );
 };
 
