@@ -32,7 +32,7 @@ const GeneratePdfForm: React.FC = () => {
           <input type="file" className="form-control" id="image" accept=".png,.jpg" onChange={handleImageChange} />
         </div>
         {text && image && (
-          <PDFDownloadLink document={<MyDocument name={text} picture={image} />} fileName="generated_pdf.pdf">
+          <PDFDownloadLink document={<MyDocument name={text} picture={image} />} fileName="generated_pdf.pdf" className="download-link" id="pdf-download-link">
             {({ loading }) => (loading ? "Создание PDF..." : "Скачать PDF")}
           </PDFDownloadLink>
         )}
