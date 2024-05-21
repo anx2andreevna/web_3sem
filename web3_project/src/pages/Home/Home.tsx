@@ -1,5 +1,5 @@
-import React from 'react';
-import GeneratePdfForm from '../../components/GeneratePdfForm';
+import React from "react";
+import GeneratePdfForm from "../../components/GeneratePdfForm";
 
 const HomePage: React.FC = () => {
   return (
